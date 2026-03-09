@@ -18,7 +18,7 @@ const Career = () => {
                 <h4>Internship</h4>
                 <h5>Valeo Schalter und Sensoren GmbH</h5>
               </div>
-              <h3>09/2025 - Present</h3>
+              <h3>09/2025 - 03/2026</h3>
             </div>
             <p>
               Automated acoustic simulations in Simcenter 3D using NX Open API and Python scripting. Created advanced Python visualization scripts for ray paths, sound pressure levels, and energy maps. Optimized simulation model setup, cutting manual configuration time by 50%.
