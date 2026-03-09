@@ -8,7 +8,7 @@ const projects = [
     title: "Topology Optimization",
     category: "Opencfs",
     tools: "Rear Bulkhead Optimization",
-    image: "/images/Solidx.png",
+    image: "/images/TopologyOptimization.png",
   },
   {
     title: "Electric Go-Kart",
