@@ -18,7 +18,7 @@ const Contact = () => {
           <div className="contact-box">
             <h4>Social</h4>
             <a
-              href="#"
+              href="https://github.com/vamshidharre"
               target="_blank"
               data-cursor="disable"
               className="contact-social"
@@ -26,28 +26,12 @@ const Contact = () => {
               Github <MdArrowOutward />
             </a>
             <a
-              href="#"
+              href="https://www.linkedin.com/in/vamshidhar-reddy-7180551a2/"
               target="_blank"
               data-cursor="disable"
               className="contact-social"
             >
               Linkedin <MdArrowOutward />
-            </a>
-            <a
-              href="#"
-              target="_blank"
-              data-cursor="disable"
-              className="contact-social"
-            >
-              Twitter <MdArrowOutward />
-            </a>
-            <a
-              href="https://www.instagram.com/therajeshchityal"
-              target="_blank"
-              data-cursor="disable"
-              className="contact-social"
-            >
-              Instagram <MdArrowOutward />
             </a>
           </div>
           <div className="contact-box">
