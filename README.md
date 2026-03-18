@@ -1,6 +1,6 @@
-# Vamshidhar Reddy Enugala — Portfolio Website 🚀
+# Vamshidhar Reddy Enugala : Portfolio Website 🚀
 
-A modern, interactive portfolio website built with **React**, **TypeScript**, **Three.js**, and **GSAP** — featuring 3D character animations, smooth scroll effects, and a premium design aesthetic.
+A modern, interactive portfolio website built with **React**, **TypeScript**, **Three.js**, and **GSAP** featuring 3D character animations, smooth scroll effects, and a premium design aesthetic.
 
 ![Portfolio Preview](public/images/preview.png)
 
