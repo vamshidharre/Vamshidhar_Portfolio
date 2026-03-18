@@ -2,6 +2,8 @@
 
 A modern, interactive portfolio website built with **React**, **TypeScript**, **Three.js**, and **GSAP** featuring 3D character animations, smooth scroll effects, and a premium design aesthetic.
 
+### 🌐 [Live Demo → vamshidhar-portfolio.netlify.app](https://vamshidhar-portfolio.netlify.app/)
+
 ![Portfolio Preview](public/images/preview.png)
 
 ---
@@ -26,6 +28,7 @@ A modern, interactive portfolio website built with **React**, **TypeScript**, **
 | **Animation** | GSAP (ScrollTrigger, SplitText) |
 | **Build Tool** | Vite 5 |
 | **Styling** | Vanilla CSS with custom properties |
+| **Hosting** | Netlify |
 | **Analytics** | Vercel Analytics |
 | **Other** | React Icons, React Fast Marquee |
 
@@ -107,15 +110,6 @@ Vamshidhar_Portfolio/
 ├── tsconfig.json         # TypeScript config
 └── package.json
 ```
-
----
-
-## ⚠️ GSAP Club Plugins
-
-This project uses **GSAP trial plugins** for development. The trial versions **cannot be used in production deployments**.
-
-To deploy to production, you'll need GSAP Club plugins:
-👉 [GSAP Installation & Club Plugins](https://gsap.com/docs/v3/Installation/)
 
 ---
 
