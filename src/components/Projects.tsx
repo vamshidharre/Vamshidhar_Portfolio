@@ -341,7 +341,7 @@ export const Projects: React.FC = () => {
                     className="modal-download-btn"
                   >
                     <FaFilePdf />
-                    <span>DOWNLOAD FULL DOCUMENTATION (PDF)</span>
+                    <span>DOWNLOAD THESIS SUMMARY (PDF)</span>
                   </a>
                 </div>
               )}

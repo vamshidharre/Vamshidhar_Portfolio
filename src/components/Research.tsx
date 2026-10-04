@@ -117,7 +117,7 @@ export const Research: React.FC = () => {
           {/* Download Action Footer */}
           <div className="thesis-card-footer">
             <div className="footer-meta">
-              <span>DOCUMENTATION STATUS: COMPLETE & DEFENDED</span>
+              <span>DOCUMENTATION STATUS: ACADEMIC SUMMARY (NON-CONFIDENTIAL)</span>
               <span>KEYWORDS: PMSM, NVH, 2D FFT, ANSYS MECHANICAL, ERP, FLEX-PCB</span>
             </div>
             <a
