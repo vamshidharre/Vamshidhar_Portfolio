@@ -1,83 +1,242 @@
-.header {
-  display: flex;
-  max-width: var(--cMaxWidth);
-  width: var(--cWidth);
-  justify-content: space-between;
-  padding: 20px 0px;
-  margin-bottom: -100px;
-  box-sizing: border-box;
+.engineering-navbar {
   position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
   top: 0;
-  z-index: 9999;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(8, 12, 20, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.12);
+  transition: all 0.3s ease;
 }
-.header ul {
-  font-size: 12px;
+
+.engineering-navbar.scrolled {
+  background: rgba(6, 10, 18, 0.92);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.25);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.nav-container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 12px 24px;
   display: flex;
-  flex-direction: column;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  column-gap: 40px;
-  row-gap: 8px;
-  align-items: end;
+  align-items: center;
+  justify-content: space-between;
 }
-.header ul li {
-  margin-left: 0px;
-  letter-spacing: 1px;
-  color: #ccc;
-  font-weight: 600;
-  cursor: pointer;
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
 }
-.navbar-connect {
-  position: absolute;
-  display: none;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 15px;
-  letter-spacing: 1px;
-  font-weight: 500;
-}
-.navbar-title {
+
+.brand-monogram {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, rgba(0, 229, 255, 0.2), rgba(56, 189, 248, 0.05));
+  border: 1px solid #00e5ff;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Geist Mono", monospace;
   font-weight: 700;
   font-size: 14px;
-  letter-spacing: 0.2px;
+  color: #00e5ff;
+  letter-spacing: 1px;
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.25);
 }
-@media only screen and (min-width: 500px) {
-  .header {
-    padding: 20px 0px;
-  }
-  .header ul {
-    flex-direction: row;
-    align-items: center;
-    font-size: 14px;
-  }
-  .header ul li {
-    color: #eae5ec;
-  }
-  .navbar-title {
-    font-size: 16px;
-  }
+
+.brand-meta {
+  display: flex;
+  flex-direction: column;
 }
-@media only screen and (min-width: 900px) {
-  .navbar-connect {
+
+.brand-name {
+  font-family: "Geist", sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  color: #f1f5f9;
+}
+
+.brand-role {
+  font-family: "Geist Mono", monospace;
+  font-size: 9.5px;
+  color: #38bdf8;
+  letter-spacing: 0.8px;
+}
+
+.nav-desktop-menu ul {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  font-family: "Geist Mono", monospace;
+  font-size: 11px;
+  color: #94a3b8;
+  text-decoration: none;
+  letter-spacing: 0.6px;
+  padding: 6px 4px;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: #00e5ff;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #00e5ff;
+  transition: width 0.2s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: "Geist Mono", monospace;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.resume-btn {
+  background: rgba(0, 229, 255, 0.1);
+  border: 1px solid rgba(0, 229, 255, 0.5);
+  color: #00e5ff;
+}
+
+.resume-btn:hover {
+  background: rgba(0, 229, 255, 0.25);
+  border-color: #00e5ff;
+  box-shadow: 0 0 12px rgba(0, 229, 255, 0.35);
+  color: #ffffff;
+}
+
+.nav-social-pills {
+  display: flex;
+  gap: 6px;
+}
+
+.social-pill {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  background: rgba(148, 163, 184, 0.1);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #cbd5e1;
+  font-size: 14px;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.social-pill:hover {
+  background: rgba(56, 189, 248, 0.2);
+  border-color: #38bdf8;
+  color: #00e5ff;
+}
+
+.mobile-toggle-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  color: #cbd5e1;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.nav-mobile-drawer {
+  display: none;
+}
+
+@media (max-width: 1080px) {
+  .nav-desktop-menu {
+    display: none;
+  }
+
+  .mobile-toggle-btn {
     display: block;
   }
-}
-@media only screen and (min-width: 1200px) {
-  .header {
-    padding: 35px 0px;
+
+  .nav-mobile-drawer {
+    display: block;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background: rgba(8, 12, 20, 0.98);
+    border-bottom: 1px solid rgba(56, 189, 248, 0.25);
+    padding: 20px 24px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, padding 0.35s ease;
   }
-  .header ul {
-    column-gap: 80px;
-    font-size: 16px;
+
+  .nav-mobile-drawer.open {
+    max-height: 480px;
   }
-  .navbar-connect {
-    font-size: 16px;
+
+  .nav-mobile-drawer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
   }
-  .navbar-title {
-    font-size: 18px;
+
+  .mobile-nav-link {
+    font-family: "Geist Mono", monospace;
+    font-size: 13px;
+    color: #cbd5e1;
+    text-decoration: none;
+    display: block;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .mobile-nav-link:hover {
+    color: #00e5ff;
+  }
+
+  .mobile-action-item {
+    margin-top: 10px;
+  }
+
+  .mobile-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 10px;
   }
 }

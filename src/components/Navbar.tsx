@@ -1,79 +1,159 @@
-import { useEffect } from "react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import HoverLinks from "./HoverLinks";
-import { gsap } from "gsap";
-import { ScrollSmoother } from "gsap/ScrollSmoother";
+import React, { useEffect, useState } from "react";
 import "./styles/Navbar.css";
+import { FaFilePdf, FaLinkedin, FaGithub } from "react-icons/fa6";
+import { RiMenu4Line, RiCloseLine } from "react-icons/ri";
+export let smoother: any = {
+  paused: () => {},
+  scrollTo: () => {},
+  scrollTop: () => {},
+};
 
-gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
-export let smoother: ScrollSmoother;
+const Navbar: React.FC = () => {
+  const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-const Navbar = () => {
   useEffect(() => {
-    smoother = ScrollSmoother.create({
-      wrapper: "#smooth-wrapper",
-      content: "#smooth-content",
-      smooth: 1.7,
-      speed: 1.7,
-      effects: true,
-      autoResize: true,
-      ignoreMobileResize: true,
-    });
-
-    smoother.scrollTop(0);
-    smoother.paused(true);
-
-    let links = document.querySelectorAll(".header ul a");
-    links.forEach((elem) => {
-      let element = elem as HTMLAnchorElement;
-      element.addEventListener("click", (e) => {
-        if (window.innerWidth > 1024) {
-          e.preventDefault();
-          let elem = e.currentTarget as HTMLAnchorElement;
-          let section = elem.getAttribute("data-href");
-          smoother.scrollTo(section, true, "top top");
-        }
-      });
-    });
-    window.addEventListener("resize", () => {
-      ScrollSmoother.refresh(true);
-    });
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 40);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const navLinks = [
+    { label: "ABOUT", href: "#about" },
+    { label: "EXPERTISE", href: "#expertise" },
+    { label: "EXPERIENCE", href: "#experience" },
+    { label: "PROJECTS", href: "#projects" },
+    { label: "RESEARCH", href: "#research" },
+    { label: "SKILLS", href: "#skills" },
+    { label: "EDUCATION", href: "#education" },
+    { label: "CONTACT", href: "#contact" },
+  ];
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setMobileMenuOpen(false);
+    const target = document.querySelector(href);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <>
-      <div className="header">
-        <a href="/#" className="navbar-title" data-cursor="disable">
-          VRE
-        </a>
-        <a
-          href="mailto:vamshidharreddye@gmail.com"
-          className="navbar-connect"
-          data-cursor="disable"
-        >
-          vamshidharreddye@gmail.com
-        </a>
-        <ul>
-          <li>
-            <a data-href="#about" href="#about">
-              <HoverLinks text="ABOUT" />
-            </a>
-          </li>
-          <li>
-            <a data-href="#work" href="#work">
-              <HoverLinks text="WORK" />
-            </a>
-          </li>
-          <li>
-            <a data-href="#contact" href="#contact">
-              <HoverLinks text="CONTACT" />
-            </a>
-          </li>
-        </ul>
-      </div>
+      <header className={`engineering-navbar ${scrolled ? "scrolled" : ""}`}>
+        <div className="nav-container">
+          {/* Brand Monogram & Status */}
+          <a href="#" className="nav-brand" onClick={(e) => handleNavClick(e, "#hero")}>
+            <div className="brand-monogram">VRE</div>
+            <div className="brand-meta">
+              <span className="brand-name">VAMSHIDHAR REDDY</span>
+              <span className="brand-role">CAE & NVH ENGINEER</span>
+            </div>
+          </a>
 
-      <div className="landing-circle1"></div>
-      <div className="landing-circle2"></div>
-      <div className="nav-fade"></div>
+          {/* Center Navigation Links */}
+          <nav className="nav-desktop-menu">
+            <ul>
+              {navLinks.map((link) => (
+                <li key={link.label}>
+                  <a
+                    href={link.href}
+                    onClick={(e) => handleNavClick(e, link.href)}
+                    className="nav-link"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+
+          {/* Quick Actions (Resume, Thesis, Links) */}
+          <div className="nav-actions">
+            <a
+              href="/docs/Vamshidhar_Reddy_Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="action-btn resume-btn"
+              title="Download Resume (PDF)"
+            >
+              <FaFilePdf />
+              <span>RESUME</span>
+            </a>
+
+            <div className="nav-social-pills">
+              <a
+                href="https://www.linkedin.com/in/vamshidhar-reddy-eng/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="social-pill"
+              >
+                <FaLinkedin />
+              </a>
+              <a
+                href="https://github.com/vamshidharre"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="GitHub"
+                className="social-pill"
+              >
+                <FaGithub />
+              </a>
+            </div>
+
+            {/* Mobile Hamburger Button */}
+            <button
+              className="mobile-toggle-btn"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label="Toggle Menu"
+            >
+              {mobileMenuOpen ? <RiCloseLine size={24} /> : <RiMenu4Line size={24} />}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile Navigation Drawer */}
+        <div className={`nav-mobile-drawer ${mobileMenuOpen ? "open" : ""}`}>
+          <ul>
+            {navLinks.map((link) => (
+              <li key={link.label}>
+                <a
+                  href={link.href}
+                  onClick={(e) => handleNavClick(e, link.href)}
+                  className="mobile-nav-link"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+            <li className="mobile-action-item">
+              <a
+                href="/docs/Vamshidhar_Reddy_Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="action-btn resume-btn mobile-btn"
+              >
+                <FaFilePdf />
+                <span>DOWNLOAD RESUME (PDF)</span>
+              </a>
+            </li>
+            <li className="mobile-action-item">
+              <a
+                href="/docs/Master_Thesis_Summary_Vamshidhar_Reddy.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="action-btn thesis-btn mobile-btn"
+              >
+                <FaFilePdf />
+                <span>THESIS SUMMARY (PDF)</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </header>
     </>
   );
 };

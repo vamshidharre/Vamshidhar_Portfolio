@@ -63,12 +63,17 @@ const SocialIcons = () => {
           </a>
         </span>
         <span>
-          <a href="https://www.linkedin.com/in/vamshidhar-reddy-7180551a2/" target="_blank">
+          <a href="https://www.linkedin.com/in/vamshidhar-reddy-eng/" target="_blank" rel="noopener noreferrer">
             <FaLinkedinIn />
           </a>
         </span>
       </div>
-      <a className="resume-button" href="#">
+      <a
+        className="resume-button"
+        href="/docs/Vamshidhar_Reddy_Resume.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <HoverLinks text="RESUME" />
         <span>
           <TbNotes />

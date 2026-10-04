@@ -1,116 +1,341 @@
 .contact-section {
-  margin: auto;
-  padding-bottom: 100px;
-  margin-top: 100px;
+  padding: 100px 24px 40px;
+  background-color: #050811;
   position: relative;
-  z-index: 2;
-  background-color: var(--backgroundColor);
+  border-top: 1px solid rgba(56, 189, 248, 0.15);
 }
 
-.contact-section h3 {
-  font-size: 60px;
-  font-weight: 400;
-  text-transform: uppercase;
-  margin: 0;
-}
-
-.contact-flex {
-  display: flex;
-  justify-content: space-between;
-}
-
-.contact-flex h4 {
-  font-weight: 500;
-  margin: 0;
-  opacity: 0.6;
-}
-
-.contact-box {
+.contact-header-block {
   display: flex;
   flex-direction: column;
+  gap: 12px;
+  max-width: 860px;
+  margin-bottom: 48px;
 }
 
-.contact-flex p {
-  margin-top: 10px;
-  margin-bottom: 20px;
+.contact-heading {
+  font-family: "Geist", -apple-system, sans-serif;
+  font-size: 38px;
+  font-weight: 800;
+  line-height: 1.25;
+  color: #f1f5f9;
+  margin: 0;
+  letter-spacing: -0.5px;
 }
 
-a.contact-social {
-  font-size: 25px;
-  border-bottom: 1px solid #ccc;
-}
-
-.contact-box h2 {
-  font-weight: 400;
-  font-size: 23px;
+.contact-sub {
+  font-family: "Geist", sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  color: #94a3b8;
   margin: 0;
 }
 
-.contact-box h2>span {
-  color: var(--accentColor);
+/* Contact Deck Grid */
+.contact-deck-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  margin-bottom: 60px;
 }
 
-.contact-box h5 {
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 20px;
+.contact-card {
+  background: rgba(15, 23, 42, 0.65);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  border-radius: 8px;
+  padding: 32px;
   display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.card-heading {
+  font-family: "Geist Mono", monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: #00e5ff;
+  letter-spacing: 1px;
+  margin: 0;
+}
+
+.card-desc {
+  font-family: "Geist", sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.send-email-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   gap: 10px;
-  opacity: 0.5;
+  background: #00e5ff;
+  border: 1px solid #00e5ff;
+  color: #040810;
+  font-family: "Geist Mono", monospace;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 14px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.35);
 }
 
-@media only screen and (max-width: 1600px) {
-  .contact-section h3 {
-    font-size: 50px;
-  }
+.send-email-btn:hover {
+  background: #38bdf8;
+  border-color: #38bdf8;
+  box-shadow: 0 0 30px rgba(0, 229, 255, 0.55);
+  transform: translateY(-2px);
+}
 
-  .contact-box h2 {
-    font-size: 20px;
-  }
+.contact-badges-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 18px;
+}
 
-  a.contact-social {
-    font-size: 22px;
+.c-badge {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.b-icon {
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.b-label {
+  display: block;
+  font-family: "Geist Mono", monospace;
+  font-size: 9.5px;
+  color: #64748b;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.b-val {
+  font-family: "Geist", sans-serif;
+  font-size: 13.5px;
+  color: #cbd5e1;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.b-val:hover {
+  color: #00e5ff;
+}
+
+/* Profiles */
+.external-profiles-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.profile-link-btn {
+  background: rgba(30, 41, 59, 0.5);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 6px;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.profile-link-btn:hover {
+  border-color: rgba(0, 229, 255, 0.5);
+  background: rgba(30, 41, 59, 0.85);
+  transform: translateY(-2px);
+}
+
+.p-icon {
+  font-size: 24px;
+  color: #00e5ff;
+  flex-shrink: 0;
+}
+
+.p-name {
+  display: block;
+  font-family: "Geist Mono", monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+
+.p-sub {
+  display: block;
+  font-family: "Geist", sans-serif;
+  font-size: 11px;
+  color: #64748b;
+}
+
+.documents-download-box {
+  background: rgba(8, 14, 26, 0.7);
+  border: 1px solid rgba(56, 189, 248, 0.15);
+  border-radius: 6px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: auto;
+}
+
+.doc-box-title {
+  font-family: "Geist Mono", monospace;
+  font-size: 10px;
+  font-weight: 700;
+  color: #64748b;
+  letter-spacing: 0.5px;
+}
+
+.doc-btns-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 8px;
+}
+
+.doc-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  border-radius: 4px;
+  padding: 9px 12px;
+  font-family: "Geist Mono", monospace;
+  font-size: 11px;
+  font-weight: 600;
+  color: #cbd5e1;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.doc-btn:hover {
+  border-color: rgba(56, 189, 248, 0.5);
+  background: rgba(15, 23, 42, 1);
+  color: #00e5ff;
+}
+
+/* Footer Bottom Bar */
+.contact-footer-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 30px;
+}
+
+.footer-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.footer-monogram {
+  width: 32px;
+  height: 32px;
+  background: rgba(0, 229, 255, 0.15);
+  border: 1px solid #00e5ff;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Geist Mono", monospace;
+  font-weight: 700;
+  font-size: 12px;
+  color: #00e5ff;
+}
+
+.footer-copy {
+  display: flex;
+  flex-direction: column;
+  font-family: "Geist Mono", monospace;
+  font-size: 11px;
+  color: #cbd5e1;
+}
+
+.footer-meta {
+  font-size: 9.5px;
+  color: #64748b;
+}
+
+.footer-center {
+  display: flex;
+  align-items: center;
+}
+
+.telemetry-pill {
+  font-family: "Geist Mono", monospace;
+  font-size: 10px;
+  color: #10b981;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  padding: 4px 10px;
+  border-radius: 3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dot-green {
+  width: 6px;
+  height: 6px;
+  background: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #10b981;
+}
+
+.scroll-top-btn {
+  background: transparent;
+  border: 1px solid rgba(148, 163, 184, 0.2);
+  color: #94a3b8;
+  font-family: "Geist Mono", monospace;
+  font-size: 10.5px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.scroll-top-btn:hover {
+  border-color: #00e5ff;
+  color: #00e5ff;
+}
+
+@media (max-width: 1024px) {
+  .contact-deck-grid {
+    grid-template-columns: 1fr;
   }
 }
 
-@media only screen and (max-width: 1300px) {
-  .contact-section h3 {
-    font-size: 40px;
+@media (max-width: 640px) {
+  .contact-heading {
+    font-size: 28px;
   }
-
-  .contact-box h2 {
-    font-size: 18px;
+  .external-profiles-row {
+    grid-template-columns: 1fr;
   }
-
-  a.contact-social {
-    font-size: 20px;
+  .contact-card {
+    padding: 20px;
   }
-
-  .contact-flex p {
-    margin-top: 0px;
-  }
-}
-
-@media only screen and (max-width: 900px) {
-  .contact-flex {
+  .contact-footer-bar {
     flex-direction: column;
-    gap: 40px;
-  }
-
-  .contact-flex p {
-    margin-bottom: 0px;
-  }
-
-  .contact-flex h4 {
-    margin-top: 20px;
-  }
-
-  .contact-section {
-    margin-top: 50px;
-    padding-bottom: 50px;
-  }
-
-  .contact-container {
-    width: calc(100% - 25px);
+    align-items: flex-start;
   }
 }

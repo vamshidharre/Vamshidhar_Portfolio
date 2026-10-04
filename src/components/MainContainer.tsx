@@ -1,57 +1,52 @@
-import { lazy, PropsWithChildren, Suspense, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import Hero from "./Hero";
 import About from "./About";
+import EngineeringExpertise from "./EngineeringExpertise";
 import Career from "./Career";
+import Projects from "./Projects";
+import Research from "./Research";
+import TechnicalSkills from "./TechnicalSkills";
+import Education from "./Education";
 import Contact from "./Contact";
 import Cursor from "./Cursor";
-import Landing from "./Landing";
 import Navbar from "./Navbar";
 import SocialIcons from "./SocialIcons";
-import WhatIDo from "./WhatIDo";
-import Work from "./Work";
-import setSplitText from "./utils/splitText";
 
-const TechStack = lazy(() => import("./TechStack"));
-
-const MainContainer = ({ children }: PropsWithChildren) => {
+const MainContainer: React.FC = () => {
   const [isDesktopView, setIsDesktopView] = useState<boolean>(
-    window.innerWidth > 1024
+    typeof window !== "undefined" ? window.innerWidth > 1024 : true
   );
 
   useEffect(() => {
     const resizeHandler = () => {
-      setSplitText();
       setIsDesktopView(window.innerWidth > 1024);
     };
-    resizeHandler();
     window.addEventListener("resize", resizeHandler);
     return () => {
       window.removeEventListener("resize", resizeHandler);
     };
-  }, [isDesktopView]);
+  }, []);
 
   return (
     <div className="container-main">
-      <Cursor />
+      {isDesktopView && <Cursor />}
       <Navbar />
       <SocialIcons />
-      {isDesktopView && children}
-      <div id="smooth-wrapper">
+      <main id="smooth-wrapper">
         <div id="smooth-content">
           <div className="container-main">
-            <Landing>{!isDesktopView && children}</Landing>
+            <Hero />
             <About />
-            <WhatIDo />
+            <EngineeringExpertise />
             <Career />
-            <Work />
-            {isDesktopView && (
-              <Suspense fallback={<div>Loading....</div>}>
-                <TechStack />
-              </Suspense>
-            )}
+            <Projects />
+            <Research />
+            <TechnicalSkills />
+            <Education />
             <Contact />
           </div>
         </div>
-      </div>
+      </main>
     </div>
   );
 };
