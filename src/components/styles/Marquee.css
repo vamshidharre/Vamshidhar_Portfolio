@@ -1,0 +1,78 @@
+.bands {
+  position: relative;
+  padding: clamp(56px, 8vw, 110px) 0;
+  overflow: hidden;
+}
+
+.band {
+  position: relative;
+  width: 110%;
+  margin-left: -5%;
+  padding: clamp(14px, 1.6vw, 22px) 0;
+}
+
+.band-accent {
+  z-index: 2;
+  transform: rotate(-2.5deg);
+  background: var(--accent);
+  color: var(--on-accent);
+  box-shadow: 0 20px 80px -20px var(--glow);
+}
+
+.band-outline {
+  z-index: 1;
+  margin-top: -18px;
+  transform: rotate(2deg);
+  background: var(--surface);
+  border-block: 1px solid var(--line);
+}
+
+.marquee {
+  overflow: hidden;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  will-change: transform;
+}
+
+.marquee-group {
+  display: flex;
+  flex: none;
+}
+
+.marquee-item {
+  display: inline-flex;
+  align-items: center;
+  font-size: clamp(30px, 4.4vw, 64px);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+}
+
+.marquee-sep {
+  display: inline-block;
+  margin: 0 0.6em;
+  font-size: 0.5em;
+}
+
+.band-outline .marquee-item {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--ink-2);
+}
+
+.band-outline .marquee-item:nth-child(odd) {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  -webkit-text-stroke: 0;
+}
+
+.band-outline .marquee-sep {
+  color: var(--accent);
+  -webkit-text-stroke: 0;
+}

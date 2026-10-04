@@ -4,25 +4,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Enugala Vamshidhar Reddy | CAE, Structural Dynamics & NVH Engineer</title>
-  <meta name="description" content="Portfolio of Enugala Vamshidhar Reddy — Mechanical Engineer specializing in CAE, Structural Dynamics, Powertrain NVH, Finite Element Analysis (FEA), and AI Neural Surrogate Modeling. Mercedes-Benz AG & Valeo experience. M.Sc. Computational Engineering, FAU Erlangen-Nürnberg." />
-  <meta name="keywords" content="CAE Engineer, NVH Engineer, Structural Dynamics, Finite Element Analysis, FEA, ANSYS Mechanical, MSC NASTRAN, Simcenter 3D, HyperMesh, PyMechanical, Machine Learning for Engineering, Neural Surrogates, TensorFlow, Vamshidhar Reddy, Erlangen, Stuttgart, Germany" />
+  <title>Vamshidhar Reddy | CAE, Structural Dynamics & NVH Engineer</title>
+  <meta name="description" content="Enugala Vamshidhar Reddy, CAE engineer in Germany working on structural dynamics, powertrain NVH and neural surrogate models for FEA. Mercedes-Benz AG and Valeo experience. M.Sc. Computational Engineering, FAU Erlangen-Nürnberg." />
   <meta name="author" content="Enugala Vamshidhar Reddy" />
+  <meta name="theme-color" content="#0a0a0b" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Enugala Vamshidhar Reddy | CAE, Structural Dynamics & NVH Engineer" />
-  <meta property="og:description" content="Mechanical Engineer specializing in CAE, NVH, Finite Element Analysis (FEA), and AI Surrogate Modeling. Active at Mercedes-Benz AG." />
+  <meta property="og:title" content="Vamshidhar Reddy | CAE, Structural Dynamics & NVH Engineer" />
+  <meta property="og:description" content="Structural dynamics, NVH and neural surrogates that turn hours of FEA into milliseconds." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://vamshidhar-portfolio.netlify.app/" />
-  <meta property="og:image" content="/images/vamshi_profile.png" />
+  <meta property="og:image" content="https://vamshidhar-portfolio.netlify.app/images/vamshi_profile.png" />
 
-  <!-- Preconnect to Google Fonts -->
+  <!-- Apply the theme before first paint to avoid a flash. Dark unless the visitor chose light. -->
+  <script>
+    (function () {
+      var root = document.documentElement;
+      root.classList.add("js");
+      var t = null;
+      try {
+        t = localStorage.getItem("theme");
+      } catch (e) {}
+      root.setAttribute("data-theme", t === "light" ? "light" : "dark");
+    })();
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@300;400;500;600;700;800&family=Geist:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=Geist:wght@300..800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 </head>
 
 <body>
+  <!-- Static copy of the contact form so Netlify Forms can detect it at build time -->
+  <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+    <input type="text" name="topic" />
+    <textarea name="message"></textarea>
+    <input type="text" name="bot-field" />
+  </form>
+
   <div id="root"></div>
   <script type="module" src="/src/main.tsx"></script>
 </body>

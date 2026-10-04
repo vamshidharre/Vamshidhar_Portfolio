@@ -1,53 +1,49 @@
-import React, { useEffect, useState } from "react";
-import Hero from "./Hero";
-import About from "./About";
-import EngineeringExpertise from "./EngineeringExpertise";
-import Career from "./Career";
-import Projects from "./Projects";
-import Research from "./Research";
-import TechnicalSkills from "./TechnicalSkills";
-import Education from "./Education";
-import Contact from "./Contact";
+import React, { useEffect } from "react";
+import Preloader from "./Preloader";
 import Cursor from "./Cursor";
 import Navbar from "./Navbar";
-import SocialIcons from "./SocialIcons";
+import Hero from "./Hero";
+import Bands from "./Marquee";
+import About from "./About";
+import Stats from "./Stats";
+import Lab from "./Lab";
+import Projects from "./Projects";
+import Career from "./Career";
+import TechnicalSkills from "./TechnicalSkills";
+import Education from "./Education";
+import Contact, { Footer } from "./Contact";
+import { useReveal } from "./utils/useReveal";
+import { useInteractions } from "./utils/useInteractions";
+import { startSmoothScroll } from "./utils/motion";
 
 const MainContainer: React.FC = () => {
-  const [isDesktopView, setIsDesktopView] = useState<boolean>(
-    typeof window !== "undefined" ? window.innerWidth > 1024 : true
-  );
-
-  useEffect(() => {
-    const resizeHandler = () => {
-      setIsDesktopView(window.innerWidth > 1024);
-    };
-    window.addEventListener("resize", resizeHandler);
-    return () => {
-      window.removeEventListener("resize", resizeHandler);
-    };
-  }, []);
+  useEffect(() => startSmoothScroll(), []);
+  useReveal();
+  useInteractions();
 
   return (
-    <div className="container-main">
-      {isDesktopView && <Cursor />}
+    <>
+      <Preloader />
+      <Cursor />
+      <div className="scroll-progress" aria-hidden="true" />
+      <a className="skip-link" href="#main">
+        Skip to content
+      </a>
       <Navbar />
-      <SocialIcons />
-      <main id="smooth-wrapper">
-        <div id="smooth-content">
-          <div className="container-main">
-            <Hero />
-            <About />
-            <EngineeringExpertise />
-            <Career />
-            <Projects />
-            <Research />
-            <TechnicalSkills />
-            <Education />
-            <Contact />
-          </div>
-        </div>
+      <main id="main">
+        <Hero />
+        <Bands />
+        <About />
+        <Stats />
+        <Lab />
+        <Projects />
+        <Career />
+        <TechnicalSkills />
+        <Education />
+        <Contact />
       </main>
-    </div>
+      <Footer />
+    </>
   );
 };
 

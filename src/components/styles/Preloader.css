@@ -1,0 +1,105 @@
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 250;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 28px var(--gutter) 24px;
+  background: #0a0a0b;
+  color: #f2f0eb;
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 1s var(--ease-in-out);
+}
+
+.preloader.is-leaving {
+  clip-path: inset(0 0 100% 0);
+}
+
+.preloader-top {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #85827b;
+}
+
+.preloader-wave {
+  width: min(560px, 80vw);
+  height: 110px;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.preloader-wave path {
+  fill: none;
+  stroke: #ff6b2c;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  vector-effect: non-scaling-stroke;
+  filter: drop-shadow(0 0 10px rgba(255, 107, 44, 0.55));
+}
+
+.preloader-bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  transition: transform 0.9s var(--ease-in-out), opacity 0.5s ease;
+}
+
+.preloader.is-leaving .preloader-bottom,
+.preloader.is-leaving .preloader-wave {
+  transform: translateY(-40px);
+  opacity: 0;
+}
+
+.preloader-wave {
+  transition: transform 0.9s var(--ease-in-out), opacity 0.5s ease;
+}
+
+.preloader-num {
+  font-size: clamp(88px, 18vw, 240px);
+  font-weight: 600;
+  line-height: 0.8;
+  letter-spacing: -0.06em;
+  font-variant-numeric: tabular-nums;
+}
+
+.preloader-step {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 10px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #c4c1ba;
+}
+
+.preloader-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ff6b2c;
+  box-shadow: 0 0 12px #ff6b2c;
+  animation: preloader-blink 0.8s ease-in-out infinite alternate;
+}
+
+@keyframes preloader-blink {
+  to {
+    opacity: 0.25;
+  }
+}
+
+@media (max-width: 560px) {
+  .preloader-step {
+    font-size: 10.5px;
+  }
+}

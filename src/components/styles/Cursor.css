@@ -1,33 +1,102 @@
-.cursor-main {
-  --size: 0px;
+.cursor {
+  display: none;
+}
+
+.has-cursor .cursor {
+  display: block;
+}
+
+.has-cursor,
+.has-cursor * {
+  cursor: none !important;
+}
+
+.has-cursor input:not([type="range"]):not([type="radio"]),
+.has-cursor textarea {
+  cursor: text !important;
+}
+
+.cursor-ring,
+.cursor-dot {
   position: fixed;
-  top: calc(var(--size) / -2);
-  left: calc(var(--size) / -2);
-  width: var(--size);
-  height: var(--size);
-  border-radius: 50px;
+  top: 0;
+  left: 0;
+  z-index: 300;
   pointer-events: none;
-  z-index: 99;
-  background-color: #e6c3ff;
-  box-shadow: 0px 0px 30px 0px rgb(175, 131, 255);
   mix-blend-mode: difference;
-  transition: top 0.3s ease-out, left 0.3s ease-out, width 0.3s ease-out,
-    height 0.3s ease-out;
+  opacity: 0;
+  transition: opacity 0.3s ease;
 }
-.cursor-icons {
-  top: 10px;
-  left: 10px;
-  height: calc(var(--cursorH) - 20px);
-  transition: all 0.5s ease-out, height 0.5s ease-in-out;
+
+.cursor.is-on .cursor-ring,
+.cursor.is-on .cursor-dot {
+  opacity: 1;
 }
-.cursor-disable {
-  --size: 0px;
+
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  border-radius: 50%;
+  background: #fff;
 }
-@media only screen and (min-width: 600px) {
-  .cursor-main {
-    --size: 50px;
-  }
-  .cursor-disable {
-    --size: 0px;
-  }
+
+.cursor-ring-shape {
+  position: absolute;
+  left: -20px;
+  top: -20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  transition: transform 0.45s var(--ease-out), background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.cursor.is-link .cursor-ring-shape {
+  transform: scale(1.7);
+  background: #fff;
+  border-color: #fff;
+}
+
+.cursor.is-link .cursor-dot,
+.cursor.is-label .cursor-dot {
+  opacity: 0;
+}
+
+.cursor.is-label .cursor-ring-shape {
+  transform: scale(2.3);
+  background: #fff;
+  border-color: #fff;
+}
+
+.cursor-label {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: #000;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.cursor.is-label .cursor-label {
+  opacity: 1;
+}
+
+.cursor.is-down .cursor-ring-shape {
+  transform: scale(0.75);
+}
+
+.cursor.is-link.is-down .cursor-ring-shape {
+  transform: scale(1.45);
+}
+
+.cursor.is-text .cursor-ring,
+.cursor.is-text .cursor-dot {
+  opacity: 0;
 }

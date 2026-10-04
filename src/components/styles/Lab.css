@@ -1,0 +1,305 @@
+.lab-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 48px 24px;
+  align-items: center;
+}
+
+.lab-copy {
+  grid-column: 1 / span 4;
+}
+
+.lab-title {
+  margin-top: 22px;
+  font-size: clamp(36px, 4.2vw, 62px);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+
+.lab-title em {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--accent);
+}
+
+.lab-text {
+  margin-top: 24px;
+  font-size: 17px;
+  color: var(--ink-2);
+}
+
+.lab-text .serif {
+  font-size: 1.2em;
+  color: var(--ink);
+}
+
+.lab-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.lab-legend li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.lab-swatch.is-line {
+  width: 22px;
+  height: 2px;
+  background: var(--ink);
+}
+
+.lab-swatch.is-mode {
+  width: 9px;
+  height: 9px;
+  margin: 0 6.5px;
+  border: 1.5px solid var(--accent);
+  border-radius: 50%;
+}
+
+.lab-plot {
+  grid-column: 6 / span 7;
+  position: relative;
+  border-radius: var(--radius);
+}
+
+/* ----- FRF plot ----- */
+.frf {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 22px 22px 16px;
+  box-shadow: 0 40px 120px -60px var(--glow);
+}
+
+.frf-svg {
+  width: 100%;
+  height: auto;
+  touch-action: pan-y;
+  overflow: visible;
+}
+
+.frf-grid line {
+  stroke: var(--line);
+  stroke-width: 1;
+}
+
+.frf-axis line {
+  stroke: var(--line-strong);
+  stroke-width: 1;
+}
+
+.frf-labels text,
+.frf-modes text {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  fill: var(--muted);
+}
+
+.frf-line {
+  fill: none;
+  stroke: var(--ink);
+  stroke-width: 1.8;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+.frf-glow {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 7;
+  stroke-linejoin: round;
+  opacity: 0.18;
+  filter: blur(6px);
+}
+
+.frf-area {
+  fill: url(#frf-fill);
+  stroke: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .frf-line,
+  .frf-glow {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+  }
+
+  .lab-plot.is-visible .frf-line,
+  .lab-plot.is-visible .frf-glow {
+    animation: draw 2.4s 0.3s var(--ease-out) forwards;
+  }
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.frf-modes circle {
+  fill: var(--surface);
+  stroke: var(--accent);
+  stroke-width: 1.6;
+}
+
+.frf-modes text {
+  fill: var(--accent);
+  font-size: 12px;
+}
+
+.frf-hover line {
+  stroke: var(--accent);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+  opacity: 0.7;
+}
+
+.frf-hover circle {
+  fill: var(--accent);
+  filter: drop-shadow(0 0 6px var(--accent));
+}
+
+.frf-plot {
+  position: relative;
+  container-type: inline-size;
+}
+
+.frf-readout {
+  position: absolute;
+  transform: translateX(10px);
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--on-accent);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.frf-readout.is-left {
+  transform: translateX(calc(-100% - 10px));
+}
+
+@container (max-width: 520px) {
+  .frf-labels text {
+    font-size: 21px;
+  }
+
+  .frf-modes text {
+    font-size: 22px;
+  }
+}
+
+.frf-control {
+  display: grid;
+  grid-template-columns: auto 1fr 56px;
+  align-items: center;
+  gap: 16px;
+  margin-top: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-size: 13.5px;
+  color: var(--ink-2);
+}
+
+.frf-zeta {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 19px;
+}
+
+.frf-control output {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  text-align: right;
+  color: var(--accent);
+}
+
+.frf-control input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 24px;
+  background: transparent;
+}
+
+.frf-control input[type="range"]::-webkit-slider-runnable-track {
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(to right, var(--accent) var(--p, 20%), var(--line-strong) var(--p, 20%));
+}
+
+.frf-control input[type="range"]::-moz-range-track {
+  height: 3px;
+  border-radius: 3px;
+  background: var(--line-strong);
+}
+
+.frf-control input[type="range"]::-moz-range-progress {
+  height: 3px;
+  border-radius: 3px;
+  background: var(--accent);
+}
+
+.frf-control input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  margin-top: -7.5px;
+  border-radius: 50%;
+  background: var(--ink);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+  transition: transform 0.2s var(--ease-out), box-shadow 0.2s ease;
+}
+
+.frf-control input[type="range"]::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--ink);
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+
+.frf-control input[type="range"]:hover::-webkit-slider-thumb {
+  box-shadow: 0 0 0 7px var(--accent-soft);
+}
+
+.frf-control input[type="range"]:active::-webkit-slider-thumb {
+  transform: scale(1.2);
+}
+
+@media (max-width: 1080px) {
+  .lab-copy,
+  .lab-plot {
+    grid-column: 1 / -1;
+  }
+
+  .lab-copy {
+    max-width: 640px;
+  }
+}
+
+@media (max-width: 480px) {
+  .frf {
+    padding: 14px 12px 12px;
+  }
+
+  .frf-control {
+    gap: 12px;
+  }
+}

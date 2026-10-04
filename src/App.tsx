@@ -1,17 +1,6 @@
-import React, { lazy, Suspense } from "react";
-import "./App.css";
+import React from "react";
+import MainContainer from "./components/MainContainer";
 
-const MainContainer = lazy(() => import("./components/MainContainer"));
-import { LoadingProvider } from "./context/LoadingProvider";
-
-const App: React.FC = () => {
-  return (
-    <LoadingProvider>
-      <Suspense fallback={<div className="loading-fallback">INITIALIZING CAE ENVIRONMENT...</div>}>
-        <MainContainer />
-      </Suspense>
-    </LoadingProvider>
-  );
-};
+const App: React.FC = () => <MainContainer />;
 
 export default App;
