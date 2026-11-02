@@ -89,7 +89,7 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font-sans);
-  font-size: 17px;
+  font-size: 19px;
   line-height: 1.6;
   font-feature-settings: "ss01", "cv11";
   text-rendering: optimizeLegibility;
@@ -174,7 +174,7 @@ p {
   border-radius: 999px;
   background: var(--ink);
   color: var(--on-ink);
-  font-size: 14px;
+  font-size: 15.5px;
 }
 
 .skip-link:focus {
@@ -233,7 +233,7 @@ p {
   grid-column: 4 / span 6;
   margin-top: 28px;
   color: var(--ink-2);
-  font-size: 18px;
+  font-size: 20px;
   max-width: 52ch;
 }
 
@@ -253,7 +253,7 @@ p {
 /* ---------- Shared type ---------- */
 .eyebrow {
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 13.5px;
   font-weight: 400;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -272,7 +272,7 @@ p {
   border: 1px solid var(--line-strong);
   border-radius: 999px;
   font-family: var(--font-mono);
-  font-size: 11.5px;
+  font-size: 13px;
   line-height: 1.4;
   color: var(--ink-2);
   white-space: nowrap;
@@ -289,7 +289,7 @@ p {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 500;
   background: linear-gradient(currentColor, currentColor) 0 100% / 100% 1px no-repeat;
   padding-bottom: 3px;
@@ -370,7 +370,7 @@ button:focus-visible > .roll > span {
   border-radius: 999px;
   background: var(--ink);
   color: var(--on-ink);
-  font-size: 15px;
+  font-size: 17px;
   font-weight: 500;
   cursor: pointer;
   transition: color 0.4s var(--ease-out);

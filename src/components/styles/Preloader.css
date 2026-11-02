@@ -20,7 +20,7 @@
   display: flex;
   justify-content: space-between;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 13.5px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #85827b;
@@ -77,7 +77,7 @@
   gap: 10px;
   padding-bottom: 10px;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 13.5px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: #c4c1ba;
@@ -100,6 +100,6 @@
 
 @media (max-width: 560px) {
   .preloader-step {
-    font-size: 10.5px;
+    font-size: 12px;
   }
 }

@@ -63,7 +63,7 @@
   display: flex;
   gap: 14px;
   margin-top: 12px;
-  font-size: 13px;
+  font-size: 14.5px;
   color: var(--muted);
 }
 
@@ -210,7 +210,7 @@
 .fig-text,
 .fig-text text {
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 14.5px;
   fill: var(--muted);
 }
 
@@ -232,7 +232,7 @@
 
   .fig-text,
   .fig-text text {
-    font-size: 21px;
+    font-size: 23.5px;
   }
 }
 
@@ -260,7 +260,7 @@
 
 .feature-summary {
   margin-top: 18px;
-  font-size: 15.5px;
+  font-size: 17.5px;
   line-height: 1.6;
   color: var(--ink-2);
 }
@@ -275,7 +275,7 @@
   position: relative;
   padding: 9px 0 9px 26px;
   border-top: 1px solid var(--line);
-  font-size: 14.5px;
+  font-size: 16px;
   line-height: 1.5;
 }
 
@@ -309,7 +309,7 @@
 }
 
 .project-note {
-  font-size: 13px;
+  font-size: 14.5px;
   color: var(--muted);
 }
 
@@ -328,7 +328,7 @@
 }
 
 .more-count {
-  font-size: 15px;
+  font-size: 17px;
   color: var(--muted);
 }
 
@@ -383,14 +383,14 @@
 
 .card-summary {
   margin-top: 12px;
-  font-size: 14.5px;
+  font-size: 16px;
   line-height: 1.6;
   color: var(--ink-2);
 }
 
 .card-outcome {
   margin-top: 14px;
-  font-size: 14px;
+  font-size: 15.5px;
   font-weight: 500;
   color: var(--accent);
 }

@@ -27,7 +27,7 @@
 
 .lab-text {
   margin-top: 24px;
-  font-size: 17px;
+  font-size: 19px;
   color: var(--ink-2);
 }
 
@@ -44,7 +44,7 @@
   padding: 0;
   list-style: none;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 13.5px;
   color: var(--muted);
 }
 
@@ -104,7 +104,7 @@
 .frf-labels text,
 .frf-modes text {
   font-family: var(--font-mono);
-  font-size: 11px;
+  font-size: 12.5px;
   fill: var(--muted);
 }
 
@@ -157,7 +157,7 @@
 
 .frf-modes text {
   fill: var(--accent);
-  font-size: 12px;
+  font-size: 13.5px;
 }
 
 .frf-hover line {
@@ -185,7 +185,7 @@
   background: var(--accent);
   color: var(--on-accent);
   font-family: var(--font-mono);
-  font-size: 11.5px;
+  font-size: 13px;
   white-space: nowrap;
   pointer-events: none;
 }
@@ -196,11 +196,11 @@
 
 @container (max-width: 520px) {
   .frf-labels text {
-    font-size: 21px;
+    font-size: 23.5px;
   }
 
   .frf-modes text {
-    font-size: 22px;
+    font-size: 24.5px;
   }
 }
 
@@ -212,19 +212,19 @@
   margin-top: 12px;
   padding-top: 16px;
   border-top: 1px solid var(--line);
-  font-size: 13.5px;
+  font-size: 15px;
   color: var(--ink-2);
 }
 
 .frf-zeta {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 19px;
+  font-size: 21.5px;
 }
 
 .frf-control output {
   font-family: var(--font-mono);
-  font-size: 12.5px;
+  font-size: 14px;
   text-align: right;
   color: var(--accent);
 }
